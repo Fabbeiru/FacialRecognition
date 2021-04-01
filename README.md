@@ -39,6 +39,7 @@ Para la realización de este sistema planetario en 3D, se han consultado y/o uti
 * <a href="https://processing.org">Página de oficial de Processing y sus referencias y ayudas</a>
 * Processing IDE
 * Aplicación <a href="https://github.com/kylemcdonald/ofxFaceTracker/releases">FaceOSC</a> de Kyle McDonald.
+* <a href="https://github.com/CreativeInquiry/FaceOSC-Templates">Ejemplos de uso</a> de FaceOSC
 * Cámara o webcam.
 
 Por otro lado, las librerías empleadas fueron:
