@@ -3,9 +3,9 @@
 
 import processing.net.*;
 import oscP5.*;
-OscP5 oscP5;
 
 // FaceOSC
+OscP5 oscP5;
 PVector posePosition;
 boolean found;
 float mouthHeight;
