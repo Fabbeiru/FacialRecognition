@@ -1,3 +1,6 @@
+// Fabián Alfonso Beirutti Pérez
+// 2021 - CIU
+
 class ParticleSystem {
 
   ArrayList<Particle> particles;
@@ -52,8 +55,8 @@ class SquareParticle extends Particle {
   }
   
   void display() {
-    fill(int(random(255)), int(random(255)), int(random(255)));
-    //fill(255,255,153);
+    //fill(int(random(255)), int(random(255)), int(random(255)));
+    fill(255,255,153, lifespan);
     stroke(255,255,0);
     rectMode(CENTER);
     // new code
