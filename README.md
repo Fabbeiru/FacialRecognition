@@ -1,5 +1,5 @@
 # FacialRecognition by Fabián Alfonso Beirutti Pérez
-Facial recognition game using processing.
+Game using facial recognition on processing.
 
 ## Introducción
 El objetivo de esta práctica de la asignatura de 4to, Creación de Interfaces de Usuario (CIU), es empezar a tratar los conceptos y las primitivas básicas 3D para el dibujo de objetos. Para ello, se ha pedido el desarrollo de una aplicación que a partir de una señal de entrada de vídeo, el usuario pueda interactuar de alguna manera con el proyecto. Todo ello, usando el lenguaje de programación y el IDE llamado Processing. Este permite desarrollar código en diferentes lenguajes y/o modos, como puede ser processing (basado en Java), p5.js (librería de JavaScript), Python, entre otros.
