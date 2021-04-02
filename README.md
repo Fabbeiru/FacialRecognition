@@ -25,6 +25,84 @@ Aprovechando que el lenguaje de programación que utiliza el IDE Processing por 
 
 ## Explicación
 ### Clase FacialRecognition
+Esta es la clase principal de la aplicación, la cual gestiona la información mostrada por pantalla al usuario (interfaz gráfica), esto es, el desarrollo de los métodos setup() y draw().
+```java
+void setup() {
+  size(640, 480);
+  frameRate(45);
+  smooth(); 
+  font = loadFont("Consolas-Italic-48.vlw");
+  textFont(font);
+  
+  mouth = new Mouth();
+  bone = new Bone();
+  pizza = new Pizza();
+  popcorn = new Popcorn();
+  taco = new Taco();
+  
+  startGame = false;
+  victory = false;
+  menu = true;
+  particleAdded = false;
+
+  // FaceOSC
+  oscP5 = new OscP5(this, 8338);
+  oscP5.plug(this, "mouthWidthReceived", "/gesture/mouth/width");
+  oscP5.plug(this, "mouthHeightReceived", "/gesture/mouth/height");
+  oscP5.plug(this, "found", "/found");
+  oscP5.plug(this, "poseOrientation", "/pose/orientation");
+  oscP5.plug(this, "posePosition", "/pose/position");
+  oscP5.plug(this, "poseScale", "/pose/scale");
+
+  imageMode(CENTER);
+  textAlign(CENTER, CENTER);
+  rectMode(CENTER);
+  noStroke();
+  fill(0);
+  textSize(20);
+  
+  systems = new ArrayList<ParticleSystem>();
+  eat = new SoundFile(this, "score.wav");
+  wrongFood = new SoundFile(this, "hit.wav");
+}
+
+void draw() {
+  if (menu) menu();
+  else {
+    background(120);
+    showHelp();
+    initFood();
+    if (victory) victoryScreen();
+    if (!found) errorScreen();
+  }
+}
+```
+Como se puede ver, en la función *setup()*, cargamos e inicializamos todas las variables y objetos que vamos utilizar a lo largo del programa. Además, en la función *draw()*, controlamos, según los valores de variables booleanas que se manejan según la interacción del usuario con la aplicación, que pantallas se muestran por pantalla como puede ser el menú, el juego o la pantalla de victoria.
+
+Por otra parte, esta misma clase es la que maneja la interacción entre el usuario y la interfaz mediante la implementación de los métodos keyPressed(), keyReleased(), mousePressed(), entre otros. Un ejemplo se muestra a continuación:
+```java
+void keyPressed() {
+  if (keyCode == ENTER) menu = false;
+  if (key == 'R' || key == 'r') {
+    victory = false;
+    resetGame();
+    systems.clear();
+  }
+}
+```
+
+### Clase Mouth
+La clase Mouth representa al objeto de la imagen de una caricatura de una boca que se posiciona en función de los valores que se reciben de la aplicación *FaceOSC*.
+```java
+void mouthControls() {
+  if (found) {
+    image(mouth, (0-posePosition.x)+width, posePosition.y-mouthHeight*4, mouthWidth*10, mouthHeight+50);
+  }
+}
+```
+
+### Clase Taco
+
 
 ## Descarga y prueba
 Para poder probar correctamente el código, descargar los ficheros (el .zip del repositorio) y en la carpeta llamada FacialRecognition se encuentran los archivos de la aplicación listos para probar y ejecutar. El archivo "README.md" y aquellos fuera de la carpeta del proyecto (FacialRecognition), son opcionales, si se descargan no deberían influir en el funcionamiento del código ya que, son usados para darle formato a la presentación y explicación del repositorio en la plataforma GitHub.
