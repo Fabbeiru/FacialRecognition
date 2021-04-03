@@ -102,7 +102,38 @@ void mouthControls() {
 ```
 
 ### Clase Taco
+La estructura de la clase Taco, Pizza, Popcorn y Bone es similar. Todas tienen su constructor, método Controls() y Reset(), siendo estos dos úlitmos propios de cada clase/objeto, consiguiendo así unas características y movimientos diferentes para cada uno de ellos.
+```java
+void tacoControls() {
+  image(taco, xtPos, ytPos, 80, 75);
 
+  xtPos = xtPos + xtSpeed;
+  ytPos = ytPos + ytSpeed;
+
+  if ((xtPos > width) || (xtPos < 0)) {
+    xtSpeed = xtSpeed * -1;
+  }
+
+  if ((ytPos > height) || (ytPos < 0)) {
+    ytSpeed = ytSpeed * -1;
+  }
+
+  if (found) {
+    if ((xtPos<=(0-posePosition.x)+width+mouthWidth*4) && (xtPos>=(0-posePosition.x)+width - mouthWidth*5) && (ytPos<=posePosition.y+mouthHeight*4) && (ytPos>=posePosition.y-mouthHeight*4)) {
+      tacoReset();
+      xtPos = xtReset;
+      ytPos = ytReset;
+      thread ("eat");
+      score+= 1;
+    }
+  }
+}
+  
+void tacoReset() {
+  xtReset = random(450);
+  ytReset = random(450);
+}
+```
 
 ## Descarga y prueba
 Para poder probar correctamente el código, descargar los ficheros (el .zip del repositorio) y en la carpeta llamada FacialRecognition se encuentran los archivos de la aplicación listos para probar y ejecutar. El archivo "README.md" y aquellos fuera de la carpeta del proyecto (FacialRecognition), son opcionales, si se descargan no deberían influir en el funcionamiento del código ya que, son usados para darle formato a la presentación y explicación del repositorio en la plataforma GitHub.
