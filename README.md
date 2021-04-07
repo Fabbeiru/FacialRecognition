@@ -13,6 +13,8 @@ Los controles de la aplicación se mostrarán en todo momento por pantalla para 
 - **Movimiento de la cabeza:** Mueve la boca animada que representa al jugador.
 - **Tecla ESC:** Cierre de la aplicación.
 
+**NOTA:** La boca animada que representa al jugador, se posicionará en pantalla según los valores obtenidos a través de la aplicación *FaceOSC* de la boca de la persona capturada en cámara. Mueve los labios, abre o cierra la boca, incluso mueve la cabeza para alcanzar la victoria.
+
 ## Descripción
 Aprovechando que el lenguaje de programación que utiliza el IDE Processing por defecto está basado en Java, podemos desarrollar nuestro código utilizando el paradigma de programación de "Programación Orientada a Objetos". Así pues, hemos descrito tres clases de Java:
 - **FacialRecognition:** clase principal.
